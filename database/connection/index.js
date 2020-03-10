@@ -1,8 +1,7 @@
+require('dotenv').config()
 const mongo = require('mongodb').MongoClient
-const dotenv = require('dotenv')
 const collectionFunctions = require('../collections')
 
-dotenv.config()
 const {DB_USER, DB_PSSWD, DB_URL} = process.env
 const url = "mongodb+srv://" + DB_USER + DB_PSSWD + DB_URL
 
