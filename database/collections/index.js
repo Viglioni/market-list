@@ -5,8 +5,10 @@ const getCollections = db => async () => new Promise((resolve,reject)=>{
     })})
 
 const createCollection = db => async colName => new Promise((resolve,reject)=>{
-    db.createCollection(colName, (err, res)=>{
-        if(err) reject(err)
+    db.createCollection(colName, {"capped": true, "size": 100000, "max": 5000}, (err, res)=>{
+        if(err) {
+            console.log(err)
+            reject(err)}
         else {
             console.log("Created collection ",colName)
             resolve(res)
